@@ -1,0 +1,44 @@
+package com.example.clickcounter
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.Button
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+  private var count = 0
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+
+    val counterText: TextView = findViewById(R.id.counterText)
+    val button: Button = findViewById(R.id.button)
+
+    button.setOnClickListener {
+      count++
+      counterText.text = count.toString()
+    }
+  }
+}
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center">
+
+<TextView
+android:id="@+id/counterText"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="0"
+android:textSize="32sp"/>
+
+<Button
+android:id="@+id/button"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="클릭하세요" />
+</LinearLayout>
